@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:registration_clean_architecture/src/core/network/error/registration_exception.dart';
 import 'package:registration_clean_architecture/src/feature/registration/presentation/provider/register_provider.dart';
 
 class RegistrationPage extends StatefulWidget {
@@ -56,10 +57,15 @@ class _RegistrationPageState extends State<RegistrationPage> {
                   ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Registration successful')),
                   );
-                } catch (e) {
-                  // Show error message
+                } on RegistrationException catch (e) { // Catch RegistrationException
+                  // Show error message from the exception
                   ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(content: Text('Registration failed: $e')),
+                    SnackBar(content: Text(e.message)),
+                  );
+                } catch (e) {
+                  // For any other exceptions, show a generic error message
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('An error occurred')),
                   );
                 }
               },

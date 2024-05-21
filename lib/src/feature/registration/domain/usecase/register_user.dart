@@ -1,5 +1,9 @@
+import 'package:registration_clean_architecture/src/core/network/error/registration_exception.dart';
+import 'package:registration_clean_architecture/src/core/util/validation/register_validation.dart';
 import 'package:registration_clean_architecture/src/feature/registration/domain/model/user.dart';
 import 'package:registration_clean_architecture/src/feature/registration/domain/repository/user_repository.dart';
+
+import '../../../../core/util/validation/register_validation.dart';
 
 class RegisterUser{
 
@@ -8,9 +12,8 @@ class RegisterUser{
   RegisterUser(this.userRepository);
 
   Future<void> execute(User user)async {
-    if (!_isUserValid(user)) {
-      throw Exception('Invalid user data');
-    }
+    isUserValid(user);
+
     try {
       await userRepository.registerUser(user);
     } catch (e) {
@@ -18,8 +21,6 @@ class RegisterUser{
     }
   }
 
-  bool _isUserValid(User user) {
-    return user.username.isNotEmpty && user.email.isNotEmpty && user.password.isNotEmpty;
-  }
+
 
 }
