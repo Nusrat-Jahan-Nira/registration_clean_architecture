@@ -1,6 +1,6 @@
 import 'package:registration_clean_architecture/src/core/network/error/registration_exception.dart';
 import 'package:registration_clean_architecture/src/core/util/validation/register_validation.dart';
-import 'package:registration_clean_architecture/src/feature/registration/domain/model/user.dart';
+import 'package:registration_clean_architecture/src/feature/registration/domain/entity/user.dart';
 import 'package:registration_clean_architecture/src/feature/registration/domain/repository/user_repository.dart';
 
 import '../../../../core/util/validation/register_validation.dart';

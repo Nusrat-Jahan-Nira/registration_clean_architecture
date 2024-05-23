@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:registration_clean_architecture/src/feature/registration/domain/model/user.dart';
+import 'package:registration_clean_architecture/src/feature/registration/data/model/Request/user_req_model.dart';
+import 'package:registration_clean_architecture/src/feature/registration/data/model/Response/user_res_model.dart';
+import 'package:registration_clean_architecture/src/feature/registration/domain/entity/user.dart';
 import 'package:registration_clean_architecture/src/feature/registration/domain/repository/user_repository.dart';
 import 'package:registration_clean_architecture/src/feature/registration/domain/usecase/register_user.dart';
 
@@ -12,6 +14,12 @@ class MockUserRepository implements UserRepository {
     // Simulate registration logic
     registerUserCalled = true;
     // You can also add more complex logic or assertions here if needed
+  }
+
+  @override
+  Future<UserResModel> getRegistration(UserReqModel reqModel) {
+    // TODO: implement getRegistration
+    throw UnimplementedError();
   }
 }
 

@@ -1,5 +1,5 @@
 import 'package:registration_clean_architecture/src/core/network/error/registration_exception.dart';
-import 'package:registration_clean_architecture/src/feature/registration/domain/model/user.dart';
+import 'package:registration_clean_architecture/src/feature/registration/domain/entity/user.dart';
 
 void isUserValid(User user) {
   if (user.username.isEmpty) {
